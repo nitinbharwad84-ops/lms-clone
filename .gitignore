@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Project Specific Exclusions
+/docs
+/real-lms-images
+AGENTS.md
+CLAUDE.md
+.env*
+.env.local
