@@ -21,6 +21,16 @@ interface CourseManagementClientProps {
   teachers: { id: string, full_name: string }[];
 }
 
+/**
+ * Renders a button that opens a modal to create a new course and manages form submission, feedback, and modal lifecycle.
+ *
+ * The modal contains fields for title, assigned teacher, thumbnail URL, and description. Submitting the form builds a FormData object,
+ * calls `createCourse`, shows an error banner when creation fails, and shows a transient success banner then closes the modal and refreshes
+ * the route on success.
+ *
+ * @param teachers - Array of teacher objects used to populate the "Assigned Teacher" select; each item must include `id` and `full_name`.
+ * @returns The CourseManagementClient React element.
+ */
 export default function CourseManagementClient({ teachers }: CourseManagementClientProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);

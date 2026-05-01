@@ -4,6 +4,14 @@ import JitsiMeetClassroom from "@/components/classroom/JitsiMeetClassroom";
 import { ArrowLeft, Clock, Users, BookOpen } from "lucide-react";
 import Link from "next/link";
 
+/**
+ * Render the live session room page for the given session route.
+ *
+ * Redirects unauthenticated requests to `/login`, loads the current user's profile to populate participant details, constructs session metadata (mocked), and renders the session header and an embedded `JitsiMeetClassroom` for `session_<id>`.
+ *
+ * @param params - Route parameters containing the session `id`
+ * @returns The page element displaying session information and the embedded classroom configured for the current user and session
+ */
 export default async function LiveSessionRoomPage({ params }: { params: { id: string } }) {
   const supabase = await createClient();
   

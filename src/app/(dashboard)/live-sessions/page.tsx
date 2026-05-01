@@ -12,6 +12,14 @@ const liveSessions = [
   { id: "034771", title: "Live Session - 8 Iks - Sem 2 - July 2025 Batch", subject: "Indian Knowledge System-2a-online-bca-july-2025-26", teacher: "Mukul Gandhi", start: "Apr 30, 2026, 05:05 PM", end: "Apr 30, 2026, 06:05 PM", status: "LIVE" },
 ];
 
+/**
+ * Render the Live Class Rooms page with filter controls, pagination UI, and a table of sessions.
+ *
+ * The component displays inputs for date, search, subject and status selection, a pagination header,
+ * and a table listing each session's ID, title, subject, teacher, start/end times, status badge, and a "View" link.
+ *
+ * @returns The component's React element containing the page layout, controls, and sessions table.
+ */
 export default function LiveSessionsPage() {
   const [filterStatus, setFilterStatus] = useState("ALL");
 

@@ -8,6 +8,12 @@ interface SubjectListProps {
   courses: any[];
 }
 
+/**
+ * Render a card with a semester selector and a list of courses showing status, progress, and an action link.
+ *
+ * @param courses - Array of course objects. Each course is expected to have `id`, `title`, `status` (e.g. `"NOT STARTED"`), and numeric `progress` (0–100).
+ * @returns A React element containing the subject list card with per-course rows, progress bars, and navigation links.
+ */
 export default function SubjectList({ courses }: SubjectListProps) {
   const [sem, setSem] = useState(2);
 

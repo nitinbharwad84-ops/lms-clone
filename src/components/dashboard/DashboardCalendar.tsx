@@ -4,6 +4,14 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+/**
+ * Render a compact dashboard calendar widget with tabs for Live Sessions and Exams.
+ *
+ * Displays a static May 2026 month view with weekday headers, day grid (including accented days and indicators),
+ * tab controls for toggling between "Live Sessions" and "Exams", month navigation UI (visual only), and a "Quick Info" panel.
+ *
+ * @returns A React element containing the calendar UI and quick info section.
+ */
 export default function DashboardCalendar() {
   const [tab, setTab] = useState<"SESSIONS" | "EXAMS">("SESSIONS");
 

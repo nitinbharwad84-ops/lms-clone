@@ -12,6 +12,13 @@ interface Message {
   isQuestion?: boolean;
 }
 
+/**
+ * Renders a fixed-width right-side live chat panel with tabbed sections (Chat, Questions, Trivia, Media), a scrollable content area, and a bottom input.
+ *
+ * Displays mock messages for the "Chat" tab, a highlighted question card and note for "Questions", an active poll for "Trivia", and an empty placeholder for "Media". The input placeholder and small UI controls adapt to the active tab.
+ *
+ * @returns The React element representing the chat panel UI.
+ */
 export default function ChatPanel() {
   const [activeTab, setActiveTab] = useState<"CHAT" | "QUESTIONS" | "TRIVIA" | "MEDIA">("CHAT");
   const [message, setMessage] = useState("");

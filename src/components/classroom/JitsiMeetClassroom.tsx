@@ -12,6 +12,17 @@ interface JitsiMeetClassroomProps {
   userRole: "admin" | "teacher" | "student";
 }
 
+/**
+ * Render an embedded Jitsi meeting configured for a classroom session.
+ *
+ * Renders a full-height container that hosts a preconfigured JitsiMeeting instance, shows a loading overlay until the Jitsi API becomes ready, sanitizes the provided `roomName` for use as the Jitsi room identifier, computes moderator privileges from `userRole`, and navigates to `/live-sessions` when the meeting is closed.
+ *
+ * @param roomName - Human-friendly room name; non-alphanumeric characters will be replaced with underscores for the underlying Jitsi room ID
+ * @param userName - Participant display name passed to Jitsi
+ * @param userEmail - Participant email passed to Jitsi
+ * @param userRole - Participant role; `"admin"` and `"teacher"` are treated as moderators
+ * @returns A React element containing the configured Jitsi meeting and a loading overlay shown until the Jitsi API is ready
+ */
 export default function JitsiMeetClassroom({
   roomName,
   userName,

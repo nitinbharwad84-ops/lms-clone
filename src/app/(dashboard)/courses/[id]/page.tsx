@@ -7,6 +7,16 @@ import ModuleAccordion from "@/components/courses/ModuleAccordion";
 import { createClient } from "@/utils/supabase/client";
 import { useParams } from "next/navigation";
 
+/**
+ * Render the course player page for the current course route.
+ *
+ * Loads the course record and its modules (including lessons) using the route `id`, sets the first lesson
+ * of the first module as the default active lesson when available, and renders the player UI: top navbar,
+ * lesson viewer, overlay controls, and a module/lesson accordion sidebar. Displays a full-screen loading
+ * message while data is being fetched.
+ *
+ * @returns The JSX element tree for the course player page.
+ */
 export default function CoursePlayerPage() {
   const { id } = useParams();
   const [course, setCourse] = useState<any>(null);

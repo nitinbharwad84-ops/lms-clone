@@ -4,6 +4,13 @@ import { signIn } from "@/lib/auth-actions";
 import { useState } from "react";
 import { ShieldCheck, Lock, Mail, ArrowRight } from "lucide-react";
 
+/**
+ * Render the admin login page with a credential form and client-side loading/error state.
+ *
+ * The form includes a hidden `role=ADMIN` field, email and password inputs, an error banner shown when sign-in fails, and a submit button that is disabled while verification is in progress.
+ *
+ * @returns The JSX element for the admin login UI
+ */
 export default function AdminLoginPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);

@@ -14,6 +14,14 @@ const supabaseAdmin = createClient(
   }
 );
 
+/**
+ * Create a new Supabase auth user and (optionally) set their profile roll number.
+ *
+ * Creates an auth user with the provided email, password, full_name, and role, marks the email confirmed, and stores full_name and role in user metadata. If `roll_number` is present in `formData`, updates the `profiles.roll_number` for the created user. Revalidates the "/admin/users" path on success.
+ *
+ * @param formData - FormData containing "email", "password", "full_name", "role" ('STUDENT' | 'TEACHER' | 'ADMIN'), and optional "roll_number"
+ * @returns `{ success: true }` on success, or `{ error: string }` with an error message when user creation fails.
+ */
 export async function createUser(formData: FormData) {
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
@@ -50,6 +58,15 @@ export async function createUser(formData: FormData) {
   return { success: true };
 }
 
+/**
+ * Delete a Supabase auth user by ID and revalidate the admin users page.
+ *
+ * This removes the user from Supabase Auth and, on success, calls revalidatePath("/admin/users")
+ * to refresh the admin users listing.
+ *
+ * @param userId - The Supabase auth user's `id` to delete
+ * @returns `{ error: string }` if deletion failed, `{ success: true }` on success
+ */
 export async function deleteUser(userId: string) {
   const { error } = await supabaseAdmin.auth.admin.deleteUser(userId);
   

@@ -15,6 +15,15 @@ import {
 import { cn } from "@/lib/utils";
 import UserManagementClient from "./UserManagementClient";
 
+/**
+ * Render the User Management page and load user profiles from the Supabase `profiles` table ordered by most recent.
+ *
+ * Fetches profiles ordered by `created_at` descending and renders a page containing a header with controls,
+ * role-count badges (Students, Teachers), a search/filter toolbar, and a table listing users with avatar (or fallback),
+ * full name, email, roll number (or "N/A"), role badge styling, a static "Active" indicator, and edit/delete action buttons.
+ *
+ * @returns A JSX element for the User Management UI populated with the fetched profiles (or an empty list when none).
+ */
 export default async function UserManagementPage() {
   const supabase = await createClient();
 

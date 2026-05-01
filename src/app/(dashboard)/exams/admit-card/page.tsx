@@ -14,6 +14,15 @@ import {
 import { format } from "date-fns";
 import { redirect } from "next/navigation";
 
+/**
+ * Renders the examination admit card page for the current authenticated user.
+ *
+ * Fetches the signed-in user's profile and redirects to `/login` when no user is present.
+ * The rendered UI displays the user's avatar (or a fallback), name, roll number, program and exam details,
+ * and static important instructions along with print and download actions.
+ *
+ * @returns The React element for the admit card UI for the authenticated user.
+ */
 export default async function AdmitCardPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();

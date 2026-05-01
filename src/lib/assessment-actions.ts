@@ -3,6 +3,18 @@
 import { createClient } from "@/utils/supabase/server";
 import { revalidatePath } from "next/cache";
 
+/**
+ * Save or update a student's viva marks and feedback for the authenticated teacher.
+ *
+ * Expects `formData` to contain the following fields:
+ * - `student_id` (string)
+ * - `course_id` (string)
+ * - `marks` (string parsable as an integer)
+ * - `feedback` (string)
+ *
+ * @param formData - FormData with the required fields listed above
+ * @returns An object with `{ success: true, data }` on success, or `{ error: string }` on failure or when the request is unauthorized
+ */
 export async function saveVivaMarks(formData: FormData) {
   const supabase = await createClient();
   const { data: { user: authUser } } = await supabase.auth.getUser();

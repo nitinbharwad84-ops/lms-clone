@@ -6,6 +6,13 @@ const stats = [
   { label: "EXAMS TAKEN", value: "75", color: "text-purple-600" }
 ];
 
+/**
+ * Render a horizontal group of statistic cards showing a label, a colored indicator, and a value for each entry in the local `stats` array.
+ *
+ * Each card centers its content and adjusts horizontal padding for the first and last items to control spacing inside the divided container.
+ *
+ * @returns A React element containing the styled stat cards.
+ */
 export default function StatCards() {
   return (
     <div className="bg-white px-8 py-4 rounded-2xl border border-gray-100 shadow-sm flex items-center mb-8 divide-x divide-gray-100">

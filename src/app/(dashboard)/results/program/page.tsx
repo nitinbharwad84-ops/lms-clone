@@ -11,6 +11,13 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+/**
+ * Render the Program Results page with filter controls, a search input, and a wide results table.
+ *
+ * Initializes a Supabase server client and retrieves the current authenticated user before rendering.
+ *
+ * @returns The JSX element representing the Program Results dashboard UI.
+ */
 export default async function ProgramResultsPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();

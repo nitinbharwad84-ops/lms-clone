@@ -3,6 +3,16 @@ import { BookOpen, User, ExternalLink, Settings2 } from "lucide-react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
+/**
+ * Render the teaching courses dashboard for the authenticated teacher.
+ *
+ * Fetches courses assigned to the current authenticated user and displays either
+ * an empty-state card when no courses exist or a grid of course cards with
+ * thumbnails, titles, descriptions, and actions. If there is no authenticated
+ * user, the request is redirected to `/login`.
+ *
+ * @returns A JSX element containing the teaching dashboard UI.
+ */
 export default async function TeachingCoursesPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();

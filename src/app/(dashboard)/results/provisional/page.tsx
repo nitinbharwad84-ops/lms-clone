@@ -9,6 +9,14 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+/**
+ * Renders the Provisional Result page and ensures the current authenticated user is retrieved.
+ *
+ * The page displays filter controls (date range and status), a search input, and a results table.
+ * When no provisional results are available the table shows an empty-state message.
+ *
+ * @returns The React element for the Provisional Result dashboard page.
+ */
 export default async function ProvisionalResultsPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();

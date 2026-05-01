@@ -3,6 +3,12 @@
 import { createClient } from "@/utils/supabase/server";
 import { revalidatePath } from "next/cache";
 
+/**
+ * Create a new course record from the provided FormData and revalidate the `/admin/courses` path.
+ *
+ * @param formData - A FormData instance containing course fields: `title`, `description`, and optional `teacher_id` and `thumbnail_url`.
+ * @returns An object with either `{ success: true, data }` where `data` is the inserted course row, or `{ error: string }` with an error message on failure.
+ */
 export async function createCourse(formData: FormData) {
   const supabase = await createClient();
 

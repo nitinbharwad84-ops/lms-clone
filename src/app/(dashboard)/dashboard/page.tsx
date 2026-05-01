@@ -6,6 +6,15 @@ import DashboardCalendar from "@/components/dashboard/DashboardCalendar";
 import { ChevronRight, BookOpen, Calendar as CalendarIcon } from "lucide-react";
 import { createClient } from "@/utils/supabase/server";
 
+/**
+ * Render the dashboard page for the currently signed-in user by loading their profile and enrolled courses.
+ *
+ * Loads the authenticated user, fetches the user's profile and enrollments (including related course data),
+ * transforms enrollments into a courses array that includes `progress` and a computed `status`, and renders
+ * the dashboard layout (header, quick actions, enrolled program banner, subject list, and calendar).
+ *
+ * @returns The React element for the dashboard page.
+ */
 export default async function DashboardPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();

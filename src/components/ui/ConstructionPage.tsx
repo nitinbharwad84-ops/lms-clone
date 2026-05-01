@@ -7,6 +7,12 @@ interface ConstructionPageProps {
   title: string;
 }
 
+/**
+ * Renders a centered "under construction" page with an animated construction icon, the provided title, explanatory text, and a link back to the dashboard.
+ *
+ * @param title - Heading text displayed prominently at the top of the page
+ * @returns A React element representing the construction/under-development UI
+ */
 export default function ConstructionPage({ title }: ConstructionPageProps) {
   return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] text-center p-8">

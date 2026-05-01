@@ -16,6 +16,16 @@ import { cn } from "@/lib/utils";
 import { createUser } from "@/lib/user-actions";
 import { useRouter } from "next/navigation";
 
+/**
+ * Renders an "Add New User" control and modal form for creating user profiles.
+ *
+ * The component manages modal visibility, displays a form with full name, role,
+ * email, and password fields, and handles submission to create a user. It shows
+ * loading, error, and success states, prevents closing while a submission is in
+ * progress, and refreshes the parent route after a successful creation.
+ *
+ * @returns The React element tree for the user management UI (button and modal form).
+ */
 export default function UserManagementClient() {
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);

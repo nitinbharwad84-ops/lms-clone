@@ -8,6 +8,13 @@ import { cn } from "@/lib/utils";
 
 import { signIn } from "@/lib/auth-actions";
 
+/**
+ * Render the client login page with a student/teacher role toggle, credential form, and inline error display.
+ *
+ * The component tracks the selected role (`"STUDENT"` | `"TEACHER"`), an `isLoading` flag for authentication in progress, and an `error` message shown when sign-in fails.
+ *
+ * @returns The login page's JSX element.
+ */
 export default function LoginPage() {
   const [role, setRole] = useState<"STUDENT" | "TEACHER">("STUDENT");
   const [isLoading, setIsLoading] = useState(false);
