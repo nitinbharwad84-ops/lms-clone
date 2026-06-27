@@ -27,6 +27,16 @@ interface MarkEntryClientProps {
   };
 }
 
+/**
+ * Renders an action button and modal for entering or updating a student's viva marks and feedback.
+ *
+ * @param studentId - The student's identifier included in the submission payload.
+ * @param courseId - The course identifier included in the submission payload.
+ * @param studentName - Display name of the student shown in the modal header.
+ * @param courseName - Display name of the course shown in the modal.
+ * @param existingMark - Optional existing assessment used to prefill `marks` and `feedback`; when present the trigger shows an edit state.
+ * @returns A React element containing the trigger button and the viva mark entry modal.
+ */
 export default function MarkEntryClient({ 
   studentId, 
   courseId, 

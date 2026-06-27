@@ -34,6 +34,16 @@ interface ModuleAccordionProps {
   onLessonSelect: (lesson: Lesson) => void;
 }
 
+/**
+ * Renders a left-side sidebar with three tabs ("MODULES", "DISCUSSION", "NOTES") and an accordion list of modules and their lessons.
+ *
+ * The "MODULES" tab shows expandable modules; expanded modules reveal lessons that reflect completion, lock state, duration, and type. Clicking a lesson invokes the provided selection callback. "DISCUSSION" and "NOTES" tabs show placeholder empty states.
+ *
+ * @param modules - Array of modules to display; each module must include an `id`, `title`, and `lessons` array.
+ * @param activeLessonId - Optional id of the currently active/selected lesson; used to style the active lesson.
+ * @param onLessonSelect - Callback invoked with a lesson when the user selects (clicks) a lesson.
+ * @returns A sidebar panel element containing the tab header and module/lesson accordion content.
+ */
 export default function ModuleAccordion({ modules, activeLessonId, onLessonSelect }: ModuleAccordionProps) {
   const [openModules, setOpenModules] = useState<string[]>(modules.length > 0 ? [modules[0].id] : []);
   const [activeTab, setActiveTab] = useState<"MODULES" | "DISCUSSION" | "NOTES">("MODULES");

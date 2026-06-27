@@ -20,6 +20,13 @@ const actions = [
   { name: "Classrooms", icon: Library, color: "bg-indigo-50 text-indigo-600" }
 ];
 
+/**
+ * Render a grid of quick-action buttons used as dashboard shortcuts.
+ *
+ * Renders seven action buttons based on the module-level `actions` array; each button shows a colored icon and a compact label and includes hover/transition styling.
+ *
+ * @returns The component's JSX element containing the grid of quick-action buttons.
+ */
 export default function QuickActions() {
   return (
     <div className="grid grid-cols-7 gap-4 mb-8">

@@ -3,6 +3,15 @@ import Navbar from "@/components/layout/Navbar";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 
+/**
+ * Renders the authenticated user's dashboard layout.
+ *
+ * Redirects to "/login" if there is no authenticated user. Fetches the user's profile
+ * and supplies it to Sidebar and Navbar; renders `children` inside the main content area.
+ *
+ * @param children - Content to render within the dashboard's main area
+ * @returns A React element containing the Sidebar, Navbar, and the provided main content
+ */
 export default async function DashboardLayout({
   children,
 }: {

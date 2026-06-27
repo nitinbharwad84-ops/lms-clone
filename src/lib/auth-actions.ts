@@ -3,6 +3,12 @@
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 
+/**
+ * Authenticate a user with Supabase, verify their profile role, and redirect to the appropriate dashboard.
+ *
+ * @param formData - FormData containing the fields `email`, `password`, and `role`
+ * @returns An object `{ error: string }` when authentication or authorization fails; otherwise the function redirects and does not return a value
+ */
 export async function signIn(formData: FormData) {
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
@@ -42,6 +48,11 @@ export async function signIn(formData: FormData) {
   }
 }
 
+/**
+ * Signs out the current user and redirects to the login page.
+ *
+ * Performs server-side sign-out for the active authentication session and then navigates to `/login`.
+ */
 export async function signOut() {
   const supabase = await createClient();
   await supabase.auth.signOut();

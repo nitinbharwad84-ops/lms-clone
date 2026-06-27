@@ -13,6 +13,14 @@ import {
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
+/**
+ * Render the admin dashboard page for managing users, courses, and system health.
+ *
+ * Fetches aggregate counts for students, teachers, and courses, retrieves the five most recent user profiles,
+ * and composes a dashboard view containing statistic cards, a recent-user onboarding table, and a system health panel.
+ *
+ * @returns A JSX element representing the Admin Control Center, including stats cards, recent users list, and quick action links.
+ */
 export default async function AdminDashboard() {
   const supabase = await createClient();
 

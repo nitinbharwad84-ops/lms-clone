@@ -14,6 +14,13 @@ import {
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 
+/**
+ * Renders the Exams list page, including a header with search and filter controls, a tab bar with counts, and a table of exams (or an empty-state message when none are available).
+ *
+ * The rendered page displays each exam's title, type badge, formatted start/end dates and times, duration, question count, and an "Enter Exam" action.
+ *
+ * @returns The React element for the Exams list page
+ */
 export default async function ExamListPage() {
   const supabase = await createClient();
   

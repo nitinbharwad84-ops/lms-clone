@@ -3,6 +3,12 @@
 import { createClient } from "@/utils/supabase/server";
 import { revalidatePath } from "next/cache";
 
+/**
+ * Creates an enrollment record for the given student and course and revalidates the admin enrollments page.
+ *
+ * @param formData - FormData containing `student_id` and `course_id` (both string values)
+ * @returns An object with `{ success: true, data }` on success or `{ error: string }` on failure. If the student is already enrolled returns `{ error: "Student is already enrolled in this course." }`.
+ */
 export async function createEnrollment(formData: FormData) {
   const supabase = await createClient();
 

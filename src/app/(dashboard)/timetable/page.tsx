@@ -11,6 +11,14 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+/**
+ * Render the timetable page containing a left sidebar (month selector, compact calendar, filters)
+ * and a main calendar grid that displays dates and session cards.
+ *
+ * The rendered UI is driven by local demo data and presents selectable year/month controls and a search input.
+ *
+ * @returns The timetable page JSX element
+ */
 export default async function TimetablePage() {
   const supabase = await createClient();
   
@@ -196,6 +204,12 @@ export default async function TimetablePage() {
   );
 }
 
+/**
+ * Render a chevron-down SVG icon.
+ *
+ * @param size - The icon's width and height in pixels.
+ * @returns An SVG element containing a downward-pointing chevron scaled to `size`
+ */
 function ChevronDownIcon({ size }: { size: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

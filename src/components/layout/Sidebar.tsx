@@ -115,6 +115,17 @@ interface SidebarProps {
   user: any;
 }
 
+/**
+ * Renders the application's left sidebar with navigation groups and a user profile footer.
+ *
+ * The menu is built from the provided user's role (defaults to `STUDENT` when missing),
+ * supports expandable items (initialized with "Results" and "Exams" expanded), and highlights
+ * the active item based on the current pathname (including subitem routes).
+ *
+ * @param user - Optional user object; the component reads `role` to generate menu groups and
+ *   displays `avatar_url`, `full_name`, and `roll_number` in the profile area when available.
+ * @returns The sidebar React element ready to be rendered in the layout.
+ */
 export default function Sidebar({ user }: SidebarProps) {
   const pathname = usePathname();
   const [expandedItems, setExpandedItems] = useState<string[]>(["Results", "Exams"]);

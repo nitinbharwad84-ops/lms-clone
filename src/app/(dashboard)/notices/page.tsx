@@ -45,6 +45,16 @@ const notices = [
   }
 ];
 
+/**
+ * Render the University Notices page with a searchable header and a list of notice cards.
+ *
+ * Displays a title row with a megaphone icon, a subtitle, a search input, and a decorative background.
+ * Renders a grid of notice cards derived from the module's `notices` array; each card shows parsed date parts,
+ * a category badge (with color variants), an optional "Urgent" badge for high-priority items, the title,
+ * description, and action buttons for downloading or learning more.
+ *
+ * @returns The page's rendered JSX element containing the notices list and header
+ */
 export default function NoticesPage() {
   return (
     <div className="space-y-10 pb-10">

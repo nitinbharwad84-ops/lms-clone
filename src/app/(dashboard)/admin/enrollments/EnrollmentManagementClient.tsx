@@ -19,6 +19,18 @@ interface EnrollmentManagementClientProps {
   courses: { id: string, title: string }[];
 }
 
+/**
+ * Render a "New Enrollment" control and modal UI to assign a student to a course.
+ *
+ * The component displays a "New Enrollment" button that opens a modal containing a form
+ * with student and course dropdowns. Submitting the form creates an enrollment, shows
+ * inline loading/error/success states, and on successful enrollment closes the modal and
+ * refreshes the surrounding page data.
+ *
+ * @param students - Array of students to populate the student select; each item must include `id`, `full_name`, and `roll_number`
+ * @param courses - Array of courses to populate the course select; each item must include `id` and `title`
+ * @returns The React element rendering the enrollment management UI (button, modal, and form)
+ */
 export default function EnrollmentManagementClient({ students, courses }: EnrollmentManagementClientProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);

@@ -6,6 +6,14 @@ interface NavbarProps {
   user: any;
 }
 
+/**
+ * Render the top navigation bar containing search, notifications, and user profile controls.
+ *
+ * Renders a sticky header with a search input (placeholder: "Search courses, exams, resources..."), a notifications button with a red indicator, and a user area that shows the user's full name (falls back to "GUEST USER"), a secondary line that displays "System Administrator" when `user.role === 'ADMIN'` or the user's `degree` (falls back to "Bachelor of Computer Application"), and an avatar (uses `user.avatar_url` or a fallback icon) with a green status badge.
+ *
+ * @param user - The current user object. Expected fields (optional): `full_name`, `role`, `degree`, `avatar_url`.
+ * @returns The header JSX element for the navigation bar.
+ */
 export default function Navbar({ user }: NavbarProps) {
   return (
     <header className="h-20 bg-white border-b border-gray-100 flex items-center justify-between px-10 sticky top-0 z-40 ml-64 shadow-sm backdrop-blur-md bg-white/80">

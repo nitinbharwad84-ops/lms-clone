@@ -24,6 +24,14 @@ import { createClient } from "@/utils/supabase/client";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 
+/**
+ * Render a course content management interface for viewing and editing a course's modules and lessons.
+ *
+ * Fetches course, module, and lesson data when mounted and whenever the route `id` changes, and exposes UI controls
+ * to add modules and lessons (via modals), delete modules and lessons (with confirmation), and expand/collapse modules.
+ *
+ * @returns The JSX element containing the header, module/lesson summary counts, an expandable syllabus list, and modals for creating modules and lessons.
+ */
 export default function CourseContentManagement() {
   const { id } = useParams();
   const [course, setCourse] = useState<any>(null);

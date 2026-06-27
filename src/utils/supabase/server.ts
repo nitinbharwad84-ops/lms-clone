@@ -1,6 +1,14 @@
 import { createServerClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 
+/**
+ * Create a Supabase server client configured to use the current request's cookies.
+ *
+ * The returned client is set up for SSR cookie synchronization; attempts to write
+ * cookies from Server Components may be silently ignored.
+ *
+ * @returns A Supabase server-side client instance configured with cookie accessors
+ */
 export async function createClient() {
   const cookieStore = await cookies()
 

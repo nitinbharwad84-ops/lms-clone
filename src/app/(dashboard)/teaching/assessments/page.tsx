@@ -12,6 +12,13 @@ import {
 import { cn } from "@/lib/utils";
 import MarkEntryClient from "./MarkEntryClient";
 
+/**
+ * Renders the teacher-facing "Assessment Hub" dashboard for viewing courses, student enrollments, and viva marks.
+ *
+ * The page displays a searchable, course-filterable table of students with current status, viva scores, and actions to enter or edit marks. If no authenticated user is present, the component returns `null`.
+ *
+ * @returns A React element for the teacher assessments dashboard, or `null` when there is no authenticated user.
+ */
 export default async function TeacherAssessmentsPage() {
   const supabase = await createClient();
   const { data: { user: authUser } } = await supabase.auth.getUser();

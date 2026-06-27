@@ -9,6 +9,12 @@ export const metadata: Metadata = {
   description: "Comprehensive Learning Management System",
 };
 
+/**
+ * Provides the root HTML layout for the application and renders page content inside the document body.
+ *
+ * @param children - React nodes to be rendered inside the `<body>` of the document.
+ * @returns The top-level HTML structure (`<html>` with `<body>`) wrapping `children`, with the Inter font class and base background/text styling applied.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{

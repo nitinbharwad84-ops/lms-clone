@@ -12,6 +12,15 @@ import {
 import { cn } from "@/lib/utils";
 import EnrollmentManagementClient from "./EnrollmentManagementClient";
 
+/**
+ * Render the Enrollment Management page populated with enrollment, student, and course data.
+ *
+ * Fetches enrollment records along with related student and course fields, then renders a header
+ * with an EnrollmentManagementClient and a table listing each enrollment's student details,
+ * enrolled course, progress, last activity, and actions.
+ *
+ * @returns A JSX element containing the Enrollment Management UI (header, management client, and enrollment table).
+ */
 export default async function EnrollmentPage() {
   const supabase = await createClient();
 

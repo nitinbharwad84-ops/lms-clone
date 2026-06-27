@@ -3,6 +3,13 @@ import { createClient } from "@supabase/supabase-js";
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
 
+/**
+ * Seeds a predefined set of users into Supabase (creates auth users and corresponding profiles) and renders the per-user outcomes.
+ *
+ * Attempts to create each seed user's auth record with email confirmed and user metadata, inserts a matching row into the `profiles` table, and collects success or error details for display.
+ *
+ * @returns A React element that displays the seeding results for each user, including error messages when present.
+ */
 export default async function SeedUsersPage() {
   const supabase = createClient(supabaseUrl, supabaseServiceKey, {
     auth: {

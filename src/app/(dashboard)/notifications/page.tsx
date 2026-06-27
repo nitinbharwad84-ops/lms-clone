@@ -45,6 +45,13 @@ const notifications = [
   }
 ];
 
+/**
+ * Renders the Notifications page for the dashboard, displaying a header, a list of notifications, and controls to mark or load notifications.
+ *
+ * The component presents notification items with visual states for type and read/unread status and includes action controls (mark all as read, delete, more options) in the UI.
+ *
+ * @returns The JSX element for the Notifications page.
+ */
 export default function NotificationsPage() {
   return (
     <div className="max-w-4xl mx-auto space-y-8 pb-10">

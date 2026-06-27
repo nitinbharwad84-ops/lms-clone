@@ -13,6 +13,13 @@ import {
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
+/**
+ * Render a teacher's student directory page showing unique students enrolled in the teacher's courses.
+ *
+ * Fetches the current authenticated user, loads enrollments for courses taught by that user, deduplicates students by student id, and renders a table with each student's avatar, name, email, roll number, performance, attendance, and a link to their profile. Returns `null` when no authenticated user is present.
+ *
+ * @returns A JSX element containing the student directory UI, or `null` if there is no authenticated user.
+ */
 export default async function TeacherStudentsPage() {
   const supabase = await createClient();
   const { data: { user: authUser } } = await supabase.auth.getUser();

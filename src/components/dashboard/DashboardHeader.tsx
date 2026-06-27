@@ -4,6 +4,12 @@ interface DashboardHeaderProps {
   user: any;
 }
 
+/**
+ * Renders the dashboard header showing a time-based greeting, the current formatted date, the user's name and role, and three static summary metrics.
+ *
+ * @param user - User object expected to include `full_name` and `role`. `full_name` is displayed in uppercase; if absent, "USER" is shown. `role === 'ADMIN'` renders the "System Administrator" subtitle, otherwise a student subtitle is shown.
+ * @returns The header JSX element containing greeting, date, user info, role subtitle, university label, and three fixed metrics.
+ */
 export default function DashboardHeader({ user }: DashboardHeaderProps) {
   const date = new Date().toLocaleDateString('en-US', { 
     weekday: 'long', 

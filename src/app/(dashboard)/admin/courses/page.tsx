@@ -15,6 +15,13 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import CourseManagementClient from "./CourseManagementClient";
 
+/**
+ * Render the Course Management dashboard page.
+ *
+ * Renders a dashboard UI that lists courses as cards and includes a CourseManagementClient populated with teacher profiles. Each course card shows a thumbnail (or fallback icon), title, module count, instructor avatar/name (or "Unassigned"), and a link to the course teaching route.
+ *
+ * @returns The page's JSX element representing the Course Management dashboard.
+ */
 export default async function CourseManagementPage() {
   const supabase = await createClient();
 

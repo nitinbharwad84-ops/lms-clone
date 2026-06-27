@@ -1,6 +1,17 @@
 import { type NextRequest, NextResponse } from 'next/server'
 import { createServerClient } from '@supabase/ssr'
 
+/**
+ * Enforces authentication redirects for dashboard and login routes while proxying request cookies to Supabase and preserving any response-set cookies.
+ *
+ * Creates a Supabase server client bound to the incoming request's cookies, retrieves the current user, and:
+ * - redirects unauthenticated requests for dashboard routes to `/login`
+ * - redirects authenticated requests for auth pages to `/dashboard`
+ * Otherwise returns the proxied response with cookies synchronized.
+ *
+ * @param request - The incoming Next.js request to evaluate and proxy
+ * @returns A NextResponse representing either the original proxied response or a redirect to `/login` or `/dashboard` depending on authentication state
+ */
 export async function proxy(request: NextRequest) {
   let response = NextResponse.next({
     request: {
